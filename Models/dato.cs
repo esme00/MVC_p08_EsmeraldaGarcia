@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVC_p08_EsmeraldaGarcia.Models
 {
-    public class datos
+    public class dato
     {
         [Key]
         public int id_dato { get; set; }
@@ -12,7 +12,7 @@ namespace MVC_p08_EsmeraldaGarcia.Models
         public string genero { get; set; }
         public string direction { get; set; }
         public string pasatiempo { get; set; }
-        public string cursos { get; set; }
+        public int id_cursos { get; set; }
         public string conocimientos { get; set; }
 
     }

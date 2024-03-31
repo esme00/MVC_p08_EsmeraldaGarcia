@@ -8,7 +8,9 @@ namespace MVC_p08_EsmeraldaGarcia.Models
         {
 
         }
-        public DbSet<datos> datos { get; set; }
+        public DbSet<dato> dato { get; set; }
+        public DbSet<cursos> cursos { get; set; }
+
 
     }
 

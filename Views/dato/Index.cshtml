@@ -8,26 +8,40 @@
 <br />
 <form asp-action="CrearDato"> 
     @*Inicio del Formulario*@
-    <div class="form-group row mb-4">
-        <div class="row mt-3">
-            <div class="col-sm-2">
-                <label>
-                    Nombre
-                </label>
-            </div>
-            <div class="col-sm-4">
-                @Html.TextBox("name_user", "", new { @class = "form-control" })
-            </div>
+    <div class="form-group row mb-4">   
 
+        @* NOMBRE DE USUARIO  *@
 
-            <div class="col-sm-2">
-                @Html.Label("lblPassword", "Password")
-            </div>
-            <div class="col-sm-4">
-                @Html.Password("password", "", new { @class = "form-control" })
-            </div>  
-            
             <div class="row mt-3">
+                    <div class="col-sm-2">
+                        <label>
+                            Nombre
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.TextBox("name_user", "", new { @class = "form-control" })
+                    </div>
+
+            </div>
+
+        @* FIN NOMBRE DE USUARIO  *@
+
+        @* CONTRASEÑA  *@
+
+            <div class="row mt-3">
+                <div class="col-sm-2">
+                    @Html.Label("lblPassword", "Password")
+                </div>
+                <div class="col-sm-4">
+                    @Html.Password("password", "", new { @class = "form-control" })
+                </div>
+
+            </div>
+        @* FIN CONTRASEÑA  *@
+
+        @* GENERO  *@   
+
+            <div class="row mt-3"> 
                 <div class="col-sm-2">
                     <label>
                         Genero
@@ -36,26 +50,102 @@
 
                 </div>
                 <div class="col-sm-4">
-                    @Html.RadioButton("Genero", "Masculino", true, new { id = "masculino" })
+                    @Html.RadioButton("genero", "Masculino", true, new { id = "id_dato" })
                     Masculino
 
-                    @Html.RadioButton("Genero", "Femenino", false, new { id = "femenino" })
+                    @Html.RadioButton("genero", "Femenino", false, new { id = "id_dato" })
                     Femenino
 
                 </div>
 
-                <div class="row mt-3">
-                    <div class="col-sm-2">
-                        @Html.Label("lblDireccion", "Dirección")
-                    </div>
-                    <div class="col-sm-4">
-                        @Html.TextArea("Direccion", "Ingrese su dirección",
-                                 new { @class = "form-control", id = "idDireccion" })
+            </div>
 
-                    </div>
+         @* FIN GENERO *@
+                         
+         @* DIRECCION *@
+            <div class="row mt-3">
+                <div class="col-sm-2">
+                    @Html.Label("lblDireccion", "Dirección")
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextArea("direction", "Ingrese su dirección",
+                             new { @class = "form-control", id = "id_dato" })
 
                 </div>
-                <div class="row mt-3">
+
+            </div>
+         @* FIN DIRECCION *@
+
+         @* PASATIEMPO *@
+
+            <div class="row mt-3">
+                <div class="col-sm-2">
+                    <label>
+                        Pasatiempo
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    <lable>
+                        Bailar
+                    </lable>
+                    @Html.CheckBox("Bailar")
+                    <lable>
+                        Correr
+                    </lable>
+                    @Html.CheckBox("Correr")
+                    <lable>
+                        Escalar
+                    </lable>
+                    @Html.CheckBox("Escalar")
+                    <lable>
+                        Peliculas
+                    </lable>
+                    @Html.CheckBox("Peliculas")
+
+                </div>
+            </div>
+
+         @* FIN PASATIEMPO *@
+
+         @* CURSO *@
+
+            <div class="row mt-3">
+                <div class="col-sm-2 ">
+                    <label>
+                        Cursos
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.DropDownList("id_cursos", ViewData["listaDeHabilidades"] as SelectList, "--Seleccionar curso----", new { @class = "form-control" })
+                </div>
+
+            </div>
+         @* FIN CURSOS *@
+
+         @* CONOCIMIENTOS  *@
+         @* FIN CONOCIMIENTOS *@
+         
+         @* GUARDADO *@
+             <div class="row mt-4">
+                <div class="form-group ">
+                    <div class="col-sm-4" style="margin-top: 20px;">
+                        <input type="submit" class="btn-primary" value="Guardar" />
+                    </div>
+                </div>
+
+             </div>
+         @* FIN GUARDADO *@
+
+
+
+
+      
+               
+            
+            
+
+                
+               @*  <div class="row mt-3">
                     <div class="col-sm-2">
                         <label>
                             Pasatiempo
@@ -82,23 +172,10 @@
                     </div>
 
 
-                </div>
-                <div class="row mt-3">
-                    <div class="col-sm-2">
-                        <label>
-                            Cursos
-                        </label>
-                    </div>
-                    <div class="col-sm-4">
-                        @{
-                            IEnumerable<string> strList = new List<string> { "POO", "TW", "MAT3", "FIS1" };
-                        }
-                        @Html.DropDownList("ddlCurso", new SelectList(strList,
-                                 strList.FirstOrDefault()), "--Seleccionar curso ----")
-                    </div>
+               
 
-                </div>
-                <div class="row mt-3">
+               
+                @* <div class="row mt-3">
                     <div class="col-sm-2">
                         <label>
                            Habilidades
@@ -113,7 +190,9 @@
                         })
                     </div>
 
-                </div>
+                </div> *@
+
+                
 
 
 
@@ -124,8 +203,7 @@
 
 
 
-            
-        </div>
+       
 
     </div>
     @*Fin del Formulario*@
