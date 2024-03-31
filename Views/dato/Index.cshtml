@@ -77,7 +77,7 @@
          @* FIN DIRECCION *@
 
          @* PASATIEMPO *@
-
+@* 
             <div class="row mt-3">
                 <div class="col-sm-2">
                     <label>
@@ -103,7 +103,7 @@
                     @Html.CheckBox("Peliculas")
 
                 </div>
-            </div>
+            </div> *@
 
          @* FIN PASATIEMPO *@
 
@@ -123,6 +123,50 @@
          @* FIN CURSOS *@
 
          @* CONOCIMIENTOS  *@
+
+            <div class="row mt-3">
+                <div class="col-sm-2">
+                    <label>Conocimientos</label>
+                </div>
+                <div class="col-sm-4">
+                    <form method="post" action="/dato/GuardarConocimientos">
+                        <div class="row mt-3">
+                            <div class="col-sm-4">
+                                <select name="conocimientos" id="conocimientos" multiple="multiple" class="form-control">
+                                <option value="C#">C#</option>
+                                <option value="ASP.NE">ASP.NET</option>
+                                <option value="ASP.NET CORE">ASP.NET CORE</option>
+                                <option value="Azure">Azure</option>
+                                </select>
+                            </div>
+                        </div>
+                       
+                    </form>
+                </div>
+            </div>
+
+                @* <div class="col-sm-2">
+                    <label>
+                        Habilidades
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.ListBox("Seleccionarhabilidades", , new List<SelectListItem>{
+                    new SelectListItem {Text = "C #", Value = "1"},
+                    new SelectListItem {Text = "ASP.NET", Value = "2"},
+                    new SelectListItem {Text = "ASP.NET Core", Value = "3"},
+                    new SelectListItem {Text = "Azure", Value = "4"}
+                    })
+                </div> *@
+                @* <select name="conocimientos" id="id_dato" multiple="multiple">
+                    <option value="1">c#</option>
+                    <option value="2">ASP.NET</option>
+                    <option value="3">ASP.NET CORE</option>
+                    <option value="4">AZURE</option>
+
+
+                </select> *@
+
          @* FIN CONOCIMIENTOS *@
          
          @* GUARDADO *@
@@ -137,78 +181,11 @@
          @* FIN GUARDADO *@
 
 
-
-
-      
-               
-            
-            
-
-                
-               @*  <div class="row mt-3">
-                    <div class="col-sm-2">
-                        <label>
-                            Pasatiempo
-                        </label>
-                    </div>
-                    <div class="col-sm-4">
-                        <lable>
-                            Bailar
-                        </lable>
-                        @Html.CheckBox("Bailar")
-                        <lable>
-                            Correr
-                        </lable>
-                        @Html.CheckBox("Correr")
-                        <lable>
-                            Escalar
-                        </lable>
-                        @Html.CheckBox("Escalar", true)
-                        <lable>
-                            Peliculas
-                        </lable>
-                        @Html.CheckBox("Peliculas")
-
-                    </div>
-
-
-               
-
-               
-                @* <div class="row mt-3">
-                    <div class="col-sm-2">
-                        <label>
-                           Habilidades
-                        </label>
-                    </div>
-                    <div class="col-sm-4">
-                       @Html.ListBox("Seleccionar habilidades", new List<SelectListItem>{
-                                                                new SelectListItem {Text = "C #", Value = "1"},
-                                                                new SelectListItem {Text = "ASP.NET", Value = "2"},
-                                                                new SelectListItem {Text = "ASP.NET Core", Value = "3"},
-                                                                new SelectListItem {Text = "Azure", Value = "4"}
-                        })
-                    </div>
-
-                </div> *@
-
-                
-
-
-
-                   
-
-
-
-
-
-
-       
-
     </div>
     @*Fin del Formulario*@
 
 </form>
+
 
 
 
