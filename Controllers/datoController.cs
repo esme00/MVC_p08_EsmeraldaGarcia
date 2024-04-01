@@ -62,14 +62,13 @@ namespace MVC_p08_EsmeraldaGarcia.Controllers
                 string conocimientosSeleccionados = string.Join(", ", conocimientos);
 
                 // Guardar en la base de datos o realizar cualquier otra operación necesaria
-                // Por ejemplo:
                 var dato = new dato { conocimientos = conocimientosSeleccionados };
                 _datoContext.dato.Add(dato);
                 _datoContext.SaveChanges();
             }
 
             // Redirigir a alguna acción de éxito o volver a la vista
-            return RedirectToAction("Index"); // Por ejemplo, redirigir a la página principal
+            return RedirectToAction("Index"); 
         }
 
        
