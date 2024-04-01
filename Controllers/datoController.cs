@@ -9,6 +9,7 @@ namespace MVC_p08_EsmeraldaGarcia.Controllers
     {
         public IActionResult Index()
         {
+            // Muestra las habilidades
             var listaDeHabilidades = (from m in _datoContext.cursos
                                  select m).ToList();
             ViewData["listaDeHabilidades"] = new SelectList(listaDeHabilidades, "id_cursos", "nombre");
@@ -16,12 +17,36 @@ namespace MVC_p08_EsmeraldaGarcia.Controllers
             return View();
         }
 
-        public IActionResult CrearDato(dato nuevodato)
+        public IActionResult CrearDato(dato nuevodato, string[] pasatiempo)
         {
-            _datoContext.Add(nuevodato);
-            _datoContext.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                // Verifica si hay pasatiempos seleccionados
+                if (pasatiempo != null && pasatiempo.Length > 0)
+                {
+                    // Construye la cadena de pasatiempos seleccionados
+                    string pasatiemposSeleccionados = string.Join(", ", pasatiempo);
 
-            return RedirectToAction("Index");
+                    // Asigna los pasatiempos seleccionados al objeto nuevodato
+                    nuevodato.pasatiempo = pasatiemposSeleccionados;
+                }
+
+                // Agrega el nuevo dato al contexto y guarda los cambios
+                _datoContext.Add(nuevodato);
+                _datoContext.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // Si el modelo no es válido, vuelve a cargar la vista con los errores de validación
+                return View(nuevodato);
+            }
+
+            // DATO ANTIGUOS//
+            //_datoContext.Add(nuevodato);
+            //_datoContext.SaveChanges();
+            //return RedirectToAction("Index");
         }
 
         private readonly datosContext _datoContext;
@@ -47,6 +72,7 @@ namespace MVC_p08_EsmeraldaGarcia.Controllers
             return RedirectToAction("Index"); // Por ejemplo, redirigir a la página principal
         }
 
+       
     }
    
 }
