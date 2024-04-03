@@ -14,6 +14,18 @@ namespace MVC_p08_EsmeraldaGarcia.Controllers
                                  select m).ToList();
             ViewData["listaDeHabilidades"] = new SelectList(listaDeHabilidades, "id_cursos", "nombre");
 
+            var listadodeequipo = (from d in _datoContext.dato
+                                   join c in _datoContext.cursos on d.id_cursos equals c.id_cursos
+                                   select new
+                                   {
+                                       nombre = d.name_user ?? "Sin nombre", // Usando el operador de coalescencia nula para manejar valores nulos
+                                       genero = d.genero ?? "No especificado",
+                                       pasatiempo = d.pasatiempo ?? "Ninguno",
+                                       curso = c.nombre ?? "Sin curso", 
+                                       conocimientos = d.conocimientos ?? "Ninguno"
+                                   }).ToList();
+            ViewData["listadodeequipo"] = listadodeequipo;
+
             return View();
         }
 

@@ -143,6 +143,36 @@
 
          @* FIN GUARDADO *@
 
+            <table class="table mt-4">
+                
+                <thead>
+                    <tr class="text-md-center">
+                        <th>Nombre</th>
+                        <th>Genero</th>
+                        <th>Pasatiempos</th>
+                        <th>Cursos</th>
+                        <th>Conocimientos</th>
+
+                    </tr>
+                </thead>
+             
+                <tbody>
+                    @foreach (var dato in (IEnumerable<dynamic>)ViewData["listadodeequipo"])
+                    {
+                        <tr>
+
+                            <td>@dato.nombre</td>
+                            <td>@dato.genero</td>
+                            <td>@dato.pasatiempo</td>
+                            <td>@dato.curso</td>
+                            <td>@dato.conocimientos</td>
+                          
+                        </tr>
+                        
+                    }  
+                </tbody>
+            </table>
+
 
     </div>
     @*Fin del Formulario*@
